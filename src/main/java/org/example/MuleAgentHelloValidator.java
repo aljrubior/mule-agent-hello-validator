@@ -1,11 +1,14 @@
 package org.example;
 
+import com.mulesoft.agent.exception.AgentEncryptionException;
 import com.mulesoft.agent.exception.ArtifactValidationException;
 import com.mulesoft.agent.services.ArtifactValidator;
+import com.mulesoft.agent.services.EncryptionService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.exceptions.BusinessNotAllowedException;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 import java.util.Map;
@@ -28,6 +31,9 @@ public class MuleAgentHelloValidator implements ArtifactValidator {
         return "defaultHelloValidator";
     }
 
+    @Inject
+    EncryptionService encryptionService;
+
     public void validate(Map<String, Object> args) throws ArtifactValidationException {
 
         // Values injected by the MuleAgentApplicationValidator service
@@ -39,6 +45,7 @@ public class MuleAgentHelloValidator implements ArtifactValidator {
         String allowedBusiness = (String) args.get("business");
         String welcomeMessage = (String) args.get("welcomeMessage");
         String errorMessage = (String) args.get("errorMessage");
+        String secret = (String) args.get("secret");
 
         LOGGER.info("Values injected by the service:");
         LOGGER.info("\tApplication name: {}", applicationName);
@@ -48,7 +55,17 @@ public class MuleAgentHelloValidator implements ArtifactValidator {
         LOGGER.info("Validator configurations:");
         LOGGER.info("\tAllowed Business: {}", allowedBusiness);
         LOGGER.info("\tWelcome message: {}", welcomeMessage);
-        LOGGER.info("\tError message: {}", errorMessage);
+        LOGGER.info("\tSecret: {}", secret);
+
+        String secretPlainText = null;
+
+        try {
+            secretPlainText = encryptionService.decrypt(secret);
+        } catch (AgentEncryptionException e) {
+            LOGGER.error(e);
+        }
+        LOGGER.info("\tSecret (plain text): {}", secretPlainText);
+
 
         String applicationBusiness = (applicationProperties == null) ? null : applicationProperties.get("business");
 
