@@ -4,7 +4,25 @@ The corresponding JAR should be added under the lib folder within the mule-agent
 
 For example, $MULE_HOME/server-plugins/mule-agent-plugin/lib/mule-agent-hello-validator.jar.
 
-## Mule Agent Moratorium Validator Configuration
+## Export the Master Password environment variable
+
+```
+export AGENT_VAR_master_password=myPassword
+```
+
+## Encrypt the Validator secrets
+
+```
+$MULE_HOME/bin/amc_setup --encrypt my-secret-value
+
+Mule Agent Installer
+-----------------------------
+
+
+	INFO: The encrypted value to paste on the mule-agent.yml file is: '![PBEWITHSHA1ANDDESEDE,wFE1D5V4DMb0uG77mzU+gibrlmnj3Kzb]'
+```
+
+## Mule Agent Hello Validator Configuration
 
 In the following configuration, we are going to implement rules for the hello validator.
 
