@@ -1,8 +1,8 @@
 package org.example;
 
 import com.mulesoft.agent.exception.AgentEncryptionException;
-import com.mulesoft.agent.exception.ArtifactValidationException;
-import com.mulesoft.agent.services.ArtifactValidator;
+import com.mulesoft.agent.exception.ApplicationValidationException;
+import com.mulesoft.agent.services.ApplicationValidator;
 import com.mulesoft.agent.services.EncryptionService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,7 +19,7 @@ import java.util.Map;
  */
 @Named("MuleAgentHelloValidator")
 @Singleton
-public class MuleAgentHelloValidator implements ArtifactValidator {
+public class MuleAgentHelloValidator implements ApplicationValidator {
 
     private static final Logger LOGGER = LogManager.getLogger(MuleAgentHelloValidator.class);
 
@@ -34,7 +34,7 @@ public class MuleAgentHelloValidator implements ArtifactValidator {
     @Inject
     EncryptionService encryptionService;
 
-    public void validate(Map<String, Object> args) throws ArtifactValidationException {
+    public void validate(Map<String, Object> args) throws ApplicationValidationException {
 
         // Values injected by the MuleAgentApplicationValidator service
         String applicationName = (String) args.get("_APPLICATION_NAME");
