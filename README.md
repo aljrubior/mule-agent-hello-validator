@@ -1,6 +1,6 @@
 ## Install the Validator in the Mule Runtime
 
-The corresponding JAR should be added under the lib folder within the mule-agent plugin, which is contained in the plugins folder of the Mule instance.
+The corresponding JAR should be added under the lib folder within the mule-agent-plugin, which is contained in the server-plugins folder of the Mule instance.
 
 For example, $MULE_HOME/server-plugins/mule-agent-plugin/lib/mule-agent-hello-validator.jar.
 
