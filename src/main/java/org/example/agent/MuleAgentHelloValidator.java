@@ -1,4 +1,4 @@
-package org.example;
+package org.example.agent;
 
 import com.mulesoft.agent.exception.AgentEncryptionException;
 import com.mulesoft.agent.exception.ApplicationValidationException;
@@ -6,7 +6,7 @@ import com.mulesoft.agent.services.ApplicationValidator;
 import com.mulesoft.agent.services.EncryptionService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.exceptions.BusinessNotAllowedException;
+import org.example.agent.exceptions.BusinessNotAllowedException;
 
 import javax.inject.Inject;
 import javax.inject.Named;
