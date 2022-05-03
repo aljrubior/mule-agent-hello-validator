@@ -1,4 +1,4 @@
-package org.example.exceptions;
+package org.example.agent.exceptions;
 
 import com.mulesoft.agent.exception.ApplicationValidationException;
 

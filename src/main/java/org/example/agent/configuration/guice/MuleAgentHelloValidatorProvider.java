@@ -1,10 +1,9 @@
-package org.example.configuration.guice;
+package org.example.agent.configuration.guice;
 
 import com.google.inject.Binder;
 import com.mulesoft.agent.configuration.guice.BaseModuleProvider;
 import com.mulesoft.agent.services.ApplicationValidator;
-import com.mulesoft.agent.services.ApplicationValidator;
-import org.example.MuleAgentHelloValidator;
+import org.example.agent.MuleAgentHelloValidator;
 
 public class MuleAgentHelloValidatorProvider extends BaseModuleProvider {
     @Override

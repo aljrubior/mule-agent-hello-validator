@@ -48,7 +48,7 @@ services:
 File: $MULE_HOME/conf/log4j2.xml
 
 ```
- <AsyncLogger name="org.example" level="INFO"/>
+ <AsyncLogger name="org.example.agent" level="INFO"/>
 ```
 
 ### Test the Name Validator
@@ -77,7 +77,7 @@ Response
 
 ```
 {
-  "type": "class org.example.exceptions.BusinessNotAllowedException",
+  "type": "class org.example.agent.exceptions.BusinessNotAllowedException",
   "message": "I am sorry you not allowed to be deployed in this Cluster"
 }
 ```
@@ -86,14 +86,14 @@ Logs
 
 ```
 INFO  2022-03-31 17:22:22,726 [qtp353278882-67] [processor: ; event: ] com.mulesoft.agent.services.application.AgentApplicationService: Deploying the app-01 application from URL file:/tmp/app-01.jar
-INFO  2022-03-31 17:22:22,734 [qtp353278882-67] [processor: ; event: ] org.example.MuleAgentHelloValidator: Values injected by the service:
-INFO  2022-03-31 17:22:22,734 [qtp353278882-67] [processor: ; event: ] org.example.MuleAgentHelloValidator: 	Application name: app-01
-INFO  2022-03-31 17:22:22,734 [qtp353278882-67] [processor: ; event: ] org.example.MuleAgentHelloValidator: 	Application file path: /tmp/mule-received-artifact-589680011267239839/app-01.jar
-INFO  2022-03-31 17:22:22,734 [qtp353278882-67] [processor: ; event: ] org.example.MuleAgentHelloValidator: 	Application properties: {business=account}
-INFO  2022-03-31 17:22:22,735 [qtp353278882-67] [processor: ; event: ] org.example.MuleAgentHelloValidator: Validator configurations:
-INFO  2022-03-31 17:22:22,735 [qtp353278882-67] [processor: ; event: ] org.example.MuleAgentHelloValidator: 	Allowed Business: finance
-INFO  2022-03-31 17:22:22,735 [qtp353278882-67] [processor: ; event: ] org.example.MuleAgentHelloValidator: 	Welcome message: Hi, welcome to Finance Cluster Runtimes
-INFO  2022-03-31 17:22:22,736 [qtp353278882-67] [processor: ; event: ] org.example.MuleAgentHelloValidator: 	Secret: ![PBEWITHSHA1ANDDESEDE,wFE1D5V4DMb0uG77mzU+gibrlmnj3Kzb]
-INFO  2022-03-31 17:22:22,756 [qtp353278882-67] [processor: ; event: ] org.example.MuleAgentHelloValidator: 	Secret (plain text): my-secret-value
+INFO  2022-03-31 17:22:22,734 [qtp353278882-67] [processor: ; event: ] org.example.agent.MuleAgentHelloValidator: Values injected by the service:
+INFO  2022-03-31 17:22:22,734 [qtp353278882-67] [processor: ; event: ] org.example.agent.MuleAgentHelloValidator: 	Application name: app-01
+INFO  2022-03-31 17:22:22,734 [qtp353278882-67] [processor: ; event: ] org.example.agent.MuleAgentHelloValidator: 	Application file path: /tmp/mule-received-artifact-589680011267239839/app-01.jar
+INFO  2022-03-31 17:22:22,734 [qtp353278882-67] [processor: ; event: ] org.example.agent.MuleAgentHelloValidator: 	Application properties: {business=account}
+INFO  2022-03-31 17:22:22,735 [qtp353278882-67] [processor: ; event: ] org.example.agent.MuleAgentHelloValidator: Validator configurations:
+INFO  2022-03-31 17:22:22,735 [qtp353278882-67] [processor: ; event: ] org.example.agent.MuleAgentHelloValidator: 	Allowed Business: finance
+INFO  2022-03-31 17:22:22,735 [qtp353278882-67] [processor: ; event: ] org.example.agent.MuleAgentHelloValidator: 	Welcome message: Hi, welcome to Finance Cluster Runtimes
+INFO  2022-03-31 17:22:22,736 [qtp353278882-67] [processor: ; event: ] org.example.agent.MuleAgentHelloValidator: 	Secret: ![PBEWITHSHA1ANDDESEDE,wFE1D5V4DMb0uG77mzU+gibrlmnj3Kzb]
+INFO  2022-03-31 17:22:22,756 [qtp353278882-67] [processor: ; event: ] org.example.agent.MuleAgentHelloValidator: 	Secret (plain text): my-secret-value
 ERROR 2022-03-31 17:22:22,762 [qtp353278882-67] [processor: ; event: ] com.mulesoft.agent.external.handlers.deployment.ApplicationsRequestHandler: Error performing the deployment of app-01. Cause: BusinessNotAllowedException: I am sorry you not allowed to deploy in this Cluster
 ```
